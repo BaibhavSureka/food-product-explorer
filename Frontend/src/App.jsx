@@ -10,7 +10,7 @@ import SortDropdown from './components/SortDropdown';
 import Cart from './components/Cart';
 import { CartProvider } from './contexts/CartContext';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
 
 function App() {
   const [products, setProducts] = useState([]);

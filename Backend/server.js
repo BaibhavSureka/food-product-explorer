@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const OPENFOODFACTS_API = "https://world.openfoodfacts.org";
+const OPENFOODFACTS_API = process.env.OPENFOODFACTS_API || "https://world.openfoodfacts.org";
 
 app.get("/api/products", async (req, res) => {
   try {
