@@ -24,7 +24,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
+  // Log the API base URL to verify it's being set correctly
+  console.log('API_BASE_URL:', API_BASE_URL);
+
   useEffect(() => {
+    console.log('Fetching products...');
     fetchProducts();
     fetchCategories();
   }, [currentPage, selectedCategory, searchQuery, sortBy]);
@@ -32,6 +36,8 @@ function App() {
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
+      // Log the request URL
+      console.log('Requesting products from:', `${API_BASE_URL}/products`);
       const response = await axios.get(`${API_BASE_URL}/products`, {
         params: {
           page: currentPage,
@@ -40,6 +46,7 @@ function App() {
           sort: sortBy,
         },
       });
+      console.log('Products fetched:', response.data);
       setProducts(response.data.products);
       setTotalPages(Math.ceil(response.data.count / 20));
     } catch (error) {
@@ -50,7 +57,10 @@ function App() {
 
   const fetchCategories = async () => {
     try {
+      // Log the request URL for categories
+      console.log('Requesting categories from:', `${API_BASE_URL}/categories`);
       const response = await axios.get(`${API_BASE_URL}/categories`);
+      console.log('Categories fetched:', response.data);
       setCategories(response.data.tags.map(tag => tag.name));
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -58,31 +68,38 @@ function App() {
   };
 
   const handleSearch = (query) => {
+    console.log('Search query:', query);
     setSearchQuery(query);
     setCurrentPage(1);
   };
 
   const handleCategoryChange = (category) => {
+    console.log('Category selected:', category);
     setSelectedCategory(category);
     setCurrentPage(1);
   };
 
   const handleProductClick = (product) => {
+    console.log('Product clicked:', product);
     setSelectedProduct(product);
   };
 
   const handleSort = (sortOption) => {
+    console.log('Sorting by:', sortOption);
     setSortBy(sortOption);
     setCurrentPage(1);
   };
 
   const handlePageChange = (page) => {
+    console.log('Page changed:', page);
     setCurrentPage(page);
   };
 
   const handleBarcodeSearch = async (barcode) => {
     try {
+      console.log('Searching product by barcode:', barcode);
       const response = await axios.get(`${API_BASE_URL}/product/${barcode}`);
+      console.log('Product fetched by barcode:', response.data);
       setSelectedProduct(response.data.product);
     } catch (error) {
       console.error('Error fetching product by barcode:', error);
@@ -158,4 +175,3 @@ function App() {
 }
 
 export default App;
-
