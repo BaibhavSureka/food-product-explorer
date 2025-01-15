@@ -6,7 +6,15 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const FRONTEND_URL = process.env.FRONTEND_URL || "*"; // Default to '*' if not set (for development)
+
+app.use(
+  cors({
+    origin: FRONTEND_URL, // Only allow requests from the frontend URL
+    methods: "GET, POST", // Allowed methods
+  })
+);
+
 app.use(express.json());
 
 const OPENFOODFACTS_API = process.env.OPENFOODFACTS_API || "https://world.openfoodfacts.org";
