@@ -1,5 +1,7 @@
 # Food Product Explorer
 
+![WhatsApp Image 2025-01-15 at 16 14 34_bcc233ac](https://github.com/user-attachments/assets/9c459b59-62a6-48f2-9401-a9a3e5f9005e)
+
 An end-to-end web application built with **React** for the front-end and **Node.js** with **Express** for the back-end. This application allows users to search, filter, and view detailed information about food products using the **OpenFoodFacts API**.
 
 ## Features
@@ -10,6 +12,10 @@ An end-to-end web application built with **React** for the front-end and **Node.
 - **Product Details**: Click on a product to view detailed information like ingredients, nutritional facts, and labels.
 - **Responsive UI**: Built with **React** and **TailwindCSS** for a smooth and responsive user experience across devices.
 - **State Management**: Global state management using **React Context API** for handling filters, search queries, and other dynamic states.
+
+![WhatsApp Image 2025-01-15 at 16 15 07_9b668a87](https://github.com/user-attachments/assets/eac9954e-b9dc-45a6-bab6-98be8120ed4e)
+
+![WhatsApp Image 2025-01-15 at 16 15 45_ef70547b](https://github.com/user-attachments/assets/6d44f1e4-905f-4108-ac9d-5bbc76e6e145)
 
 ## Technologies Used
 
